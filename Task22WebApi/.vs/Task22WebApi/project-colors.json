@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "32f6050e-6bee-4c3b-809a-ded585dd62ca": {
+      "ProjectGuid": "32f6050e-6bee-4c3b-809a-ded585dd62ca",
+      "DisplayName": "Task22WebApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

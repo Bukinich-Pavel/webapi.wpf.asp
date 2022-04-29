@@ -1,0 +1,26 @@
+﻿@if (Model != null)
+{
+    string strId = $"Id - {Model.Id}";
+    string strSecondName = $"Фамилия - {Model.SecondName}";
+    string strFirstName = $"Имя - {Model.FirstName}";
+    string strFatherName = $"Отчество - {Model.FatherName}";
+    string strPhoneNumber = $"Номер телефона - {Model.PhoneNumber}";
+    string strAddress = $"Адрес - {Model.Address}";
+    string strDescription = $"Описание - {Model.Description}";
+
+    <p class="text-center">@strId</p>
+    <p class="text-center">@strSecondName</p>
+    <p class="text-center">@strFirstName</p>
+    <p class="text-center">@strFatherName</p>
+    <p class="text-center">@strPhoneNumber</p>
+    <p class="text-center">@strAddress</p>
+    <p class="text-center">@strDescription</p>
+
+    @if(User.Identity.IsAuthenticated && User.IsInRole("admin"))
+    {
+        <div class="form-row text-center">
+            <a class="btn btn-primary btn-lg btn-block" asp-action="EditPhoneBook" asp-controller="Home" asp-route-Id="@Model.Id">Изменить запись</a>
+        </div>
+    }
+
+}

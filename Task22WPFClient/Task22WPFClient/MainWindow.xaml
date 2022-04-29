@@ -1,0 +1,41 @@
+﻿<Window x:Class="Task22WPFClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task22WPFClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="870">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Command="{Binding AddPhoneBook}" FontSize="18" Margin="30,0,0,0" Width="100" Height="37">Добавить</Button>
+        </WrapPanel>
+
+        <ListView Grid.Row="1" FontSize="18" ItemsSource="{Binding ListPhoneBook}" SelectedItem="{Binding SelectPhoneBook}">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{Binding CommandDeletePhoneBook}" Header="Удалить" />
+                    <MenuItem Command="{Binding CommandEditPhoneBook}" Header="Изменить" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="50" />
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=FirstName}" Width="100" />
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Path=SecondName}" Width="100" />
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Path=FatherName}" Width="100" />
+                    <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Path=PhoneNumber}" Width="200" />
+                    <GridViewColumn Header="Адресс" DisplayMemberBinding="{Binding Path=Address}" Width="100" />
+                    <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Path=Description}" Width="200" />
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Grid>
+</Window>

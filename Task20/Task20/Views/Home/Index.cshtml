@@ -1,0 +1,35 @@
+﻿<br/>
+@if(Model != null)
+{
+    <div class="form-row text-center">
+        <a class="btn btn-primary btn-lg btn-block" asp-action="AddPhoneBook" asp-controller="Home">Добавить запись</a>
+    </div>
+}
+else
+{
+    <p>Ошибка подключения!</p>
+}
+
+
+<section class="collections-grid p-5">
+    @if(Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <form  asp-action="Delete" asp-controller="Home" asp-route-Id="@item.Id" method="post">
+                <div class="card shadow decoration-none text-dark" style="width: 18rem;">
+                    <div class="card-body">
+                        <a class="btn btn-primary" asp-action="FullInfo" asp-controller="Home" asp-route-id="@item.Id">@item.Id</a>
+                        <h5 class="card-title">@item.SecondName</h5>
+                        <p class="card-text">@item.FirstName</p>
+                        <p class="card-text">@item.FatherName</p>
+                        @if(User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                        {
+                            <input class="btn btn-sm btn-danger" type="submit" value="Удалить" />
+                        }
+                    </div>
+                </div>
+            </form>
+        }
+    }
+</section>

@@ -1,0 +1,33 @@
+﻿@model Task20.Models.PhoneBook
+
+<form asp-controller="Home" asp-action="EditPhoneBook">
+    <div hidden class="navbar-brand">
+        <label>Id</label><br />
+        <input class="form-control" asp-for="Id" />
+    </div>
+    <div class="navbar-brand">
+        <label>Фамилия</label><br />
+        <input class="form-control" asp-for="SecondName" />
+    </div>
+    <div class="navbar-brand">
+        <label>Имя</label><br />
+        <input class="form-control" asp-for="FirstName" />
+    </div>
+    <div class="navbar-brand">
+        <label>Отчество</label><br />
+        <input class="form-control" asp-for="FatherName" />
+    </div>
+    <div class="navbar-brand">
+        <label>Телефонный номер</label><br />
+        <input class="form-control" asp-for="PhoneNumber" />
+    </div>
+    <div class="navbar-brand">
+        <label>Адрес</label><br />
+        <input class="form-control" asp-for="Address" />
+    </div>
+    <div class="navbar-brand">
+        <label>Описание</label><br />
+        <input class="form-control" asp-for="Description" />
+    </div>
+    <input class="btn btn-sm btn-danger" type="submit" value="Сохранить" />
+</form>
